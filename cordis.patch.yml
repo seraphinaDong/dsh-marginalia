@@ -1,0 +1,12 @@
+# dsh-marginalia bundle patch
+#
+# Installed through the official CLI:
+#
+#   dsh plugin --profile desktop add ./path/to/dsh-marginalia
+#
+# The CLI reconciles `dsh.profile.bundles` against installed packages and,
+# seeing `dsh.bundle.patch` in package.json, appends this bundle to the stack.
+# Do not also insert this row into the profile's own cordis.patch.yml.
+- insert:
+    - id: marginalia
+      name: 'dsh-marginalia'
