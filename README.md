@@ -76,7 +76,7 @@ dsh plugin --profile desktop add ./path/to/dsh-marginalia
 
 装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
 
-要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.0-rc <0.3`。这份 0.1.0 是按桌面版 `0.2.0-rc.2` 写的。
+要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.0 是按桌面版 `0.2.1-rc.2` 写的。
 
 不要把本插件再写进 profile 自己的 `cordis.patch.yml`。命令行看到 `package.json` 里的 `dsh.bundle.patch` 后，会自己把 `cordis.patch.yml` 接上。写两遍会挂两次。
 
@@ -161,7 +161,7 @@ dsh plugin --profile desktop add ./path/to/dsh-marginalia
 
 After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
 
-Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.0-rc <0.3`. Version 0.1.0 was written against desktop `0.2.0-rc.2`.
+Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.0 was written against desktop `0.2.1-rc.2`.
 
 Do not also insert this plugin into the profile's own `cordis.patch.yml`. The CLI reads `dsh.bundle.patch` in `package.json` and appends `cordis.patch.yml` itself. Adding it twice mounts the plugin twice.
 
