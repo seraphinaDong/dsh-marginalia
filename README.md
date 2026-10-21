@@ -68,13 +68,27 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 ### 安装
 
-把路径换成这套插件所在的目录。profile 名一般是 `desktop`。
+从 npm 安装当前发布的版本。profile 名一般是 `desktop`。
+
+```bash
+dsh plugin --profile desktop add dsh-marginalia
+```
+
+要固定版本，把包名写成 `dsh-marginalia@0.1.1`。装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
+
+也可以从本机目录安装。把路径换成这套插件所在的目录：
 
 ```bash
 dsh plugin --profile desktop add ./path/to/dsh-marginalia
 ```
 
-装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
+查看 npm 上的版本：
+
+```bash
+npm view dsh-marginalia version
+```
+
+包页面是 https://www.npmjs.com/package/dsh-marginalia 。
 
 要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.1 是按桌面版 `0.2.1-rc.2` 写的。
 
@@ -92,6 +106,21 @@ dsh plugin --profile desktop add ./path/to/dsh-marginalia
 ```bash
 node --test lib/model.test.js lib/quote.test.js
 ```
+
+### 发布到 npm
+
+同一版本只能发布一次。先改版本号，再发布。`--no-git-tag-version` 只改 `package.json`，不会自己做 Git 提交，因此不需要先设置 Git 作者。
+
+```bash
+npm login
+npm whoami
+npm version patch --no-git-tag-version
+npm publish --access public
+```
+
+`npm login` 在 npm 11 里会打开网页确认。成功时 `npm whoami` 显示用户名，`npm publish` 的最后一行是 `+ dsh-marginalia@x.y.z`。
+
+如果发布返回 403，并写着需要 two-factor authentication 或 granular access token with bypass 2fa，网页登录留下的令牌不能用来发版。到 https://www.npmjs.com/settings/~/tokens 新建 Granular Access Token，权限选 Read and write，范围选 All packages，并勾选 Bypass two-factor authentication。然后在自己的终端执行 `npm config set //registry.npmjs.org/:_authToken`，后面接那枚新令牌，再重新 `npm publish --access public`。不要把令牌或验证码写进仓库、对话或截图。发完可以删掉这枚令牌。
 
 ## English
 
@@ -153,13 +182,27 @@ The list starts with DeepSeek V4 Pro and DeepSeek Flash, then the models declare
 
 ### Install
 
-Replace the path with the directory that contains this plugin. The profile name is usually `desktop`.
+Install the current release from npm. The profile name is usually `desktop`.
+
+```bash
+dsh plugin --profile desktop add dsh-marginalia
+```
+
+Pin a version with `dsh-marginalia@0.1.1`. After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
+
+A local directory works too. Replace the path with the directory that contains this plugin:
 
 ```bash
 dsh plugin --profile desktop add ./path/to/dsh-marginalia
 ```
 
-After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
+Check the version on npm:
+
+```bash
+npm view dsh-marginalia version
+```
+
+The package page is https://www.npmjs.com/package/dsh-marginalia .
 
 Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.1 was written against desktop `0.2.1-rc.2`.
 
@@ -177,6 +220,21 @@ Check the package locally:
 ```bash
 node --test lib/model.test.js lib/quote.test.js
 ```
+
+### Publish to npm
+
+A version can be published only once. Change the version, then publish. `--no-git-tag-version` edits `package.json` and does not make a Git commit, so Git does not need an author name first.
+
+```bash
+npm login
+npm whoami
+npm version patch --no-git-tag-version
+npm publish --access public
+```
+
+On npm 11, `npm login` asks you to confirm in a browser. `npm whoami` then prints the account name. A successful publish ends with `+ dsh-marginalia@x.y.z`.
+
+A 403 that mentions two-factor authentication or a granular access token with bypass 2fa means the token from the browser login cannot publish. Create a Granular Access Token at https://www.npmjs.com/settings/~/tokens with Read and write permission, All packages, and Bypass two-factor authentication checked. In your own terminal, run `npm config set //registry.npmjs.org/:_authToken` followed by that token, then `npm publish --access public` again. Do not put the token or a one-time code in the repository, a chat, or a screenshot. Delete the token after publishing.
 
 ## License
 
