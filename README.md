@@ -17,7 +17,7 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 | 按钮 | 做什么 |
 |---|---|
 | 复制 | 把选中的这段放进剪贴板。 |
-| 标红 / 取消标红 | 给这段加上或去掉红色标出。 |
+| 标记 / 取消标记 | 给这段加上或去掉颜色。点标记后，上方浮出红、蓝、黄；加号打开调色板。自己选的颜色会留下，一共最多 5 种。 |
 | 划线 / 取消划线 | 给这段加下划线，或把下划线去掉。 |
 | 提问 / 追问 | 就这段发问。已经问过的，接着问同一条。 |
 
@@ -29,7 +29,7 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 笔记写在本机的 `~/.dsh/study-notes/`（Windows 上是 `%USERPROFILE%\.dsh\study-notes\`），按工作区分开，里面是 `index.json` 和对应的 Markdown。不写进你正在打开的项目仓库。
 
-同一段再选一次，按钮变成「取消标红」或「取消划线」，整条标注会从对话和笔记里拿掉。选区跟已有标注重叠，或去掉空白后是同一句，也算这一条。别处还有一句完全相同的文字时，会一起取消。
+同一段再选一次，按钮变成「取消标记」或「取消划线」，整条标注会从对话和笔记里拿掉。选区跟已有标注重叠，或去掉空白后是同一句，也算这一条。别处还有一句完全相同的文字时，会一起取消。
 
 ### 就一句话提问
 
@@ -74,7 +74,7 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 dsh plugin --profile desktop add dsh-marginalia
 ```
 
-要固定版本，把包名写成 `dsh-marginalia@0.1.1`。装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
+要固定版本，把包名写成 `dsh-marginalia@0.1.2`。装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
 
 也可以从本机目录安装。把路径换成这套插件所在的目录：
 
@@ -90,7 +90,7 @@ npm view dsh-marginalia version
 
 包页面是 https://www.npmjs.com/package/dsh-marginalia 。
 
-要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.1 是按桌面版 `0.2.1-rc.2` 写的。
+要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.2 是按桌面版 `0.2.1-rc.2` 写的。
 
 不要把本插件再写进 profile 自己的 `cordis.patch.yml`。命令行看到 `package.json` 里的 `dsh.bundle.patch` 后，会自己把 `cordis.patch.yml` 接上。写两遍会挂两次。
 
@@ -131,7 +131,7 @@ Stay in the conversation and select part of an assistant reply, or part of a mes
 | Button | What it does |
 |---|---|
 | 复制 | Copy the selection. |
-| 标红 / 取消标红 | Mark the span red, or clear that mark. |
+| 标记 / 取消标记 | Color the span, or clear that mark. After 标记, a row floats above with red, blue, and yellow. + opens a palette. Chosen colors are kept, and there can be at most five. |
 | 划线 / 取消划线 | Underline the span, or clear the underline. |
 | 提问 / 追问 | Ask about this span. If you already asked, continue that same side conversation. |
 
@@ -143,7 +143,7 @@ Marked sentences are listed on the 学习 page. Each row can take a comment, and
 
 Notes are stored on this machine under `~/.dsh/study-notes/` (`%USERPROFILE%\.dsh\study-notes\` on Windows), grouped by workspace, as `index.json` plus a Markdown file. They are not written into the project you have open.
 
-Select the same span again and the button becomes 取消标红 or 取消划线. That removes the whole mark from the conversation and from the notes. An overlapping selection, or the same words with different line breaks, counts as that mark. The same quote elsewhere is removed with it.
+Select the same span again and the button becomes 取消标记 or 取消划线. That removes the whole mark from the conversation and from the notes. An overlapping selection, or the same words with different line breaks, counts as that mark. The same quote elsewhere is removed with it.
 
 ### Ask about one sentence
 
@@ -188,7 +188,7 @@ Install the current release from npm. The profile name is usually `desktop`.
 dsh plugin --profile desktop add dsh-marginalia
 ```
 
-Pin a version with `dsh-marginalia@0.1.1`. After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
+Pin a version with `dsh-marginalia@0.1.2`. After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
 
 A local directory works too. Replace the path with the directory that contains this plugin:
 
@@ -204,7 +204,7 @@ npm view dsh-marginalia version
 
 The package page is https://www.npmjs.com/package/dsh-marginalia .
 
-Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.1 was written against desktop `0.2.1-rc.2`.
+Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.2 was written against desktop `0.2.1-rc.2`.
 
 Do not also insert this plugin into the profile's own `cordis.patch.yml`. The CLI reads `dsh.bundle.patch` in `package.json` and appends `cordis.patch.yml` itself. Adding it twice mounts the plugin twice.
 

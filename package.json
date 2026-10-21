@@ -1,6 +1,6 @@
 {
   "name": "dsh-marginalia",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Marginal notes for DSH. Mark assistant replies in the conversation and keep them as notes.",
   "type": "module",
   "main": "lib/index.js",
