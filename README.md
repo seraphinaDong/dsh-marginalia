@@ -25,7 +25,9 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 ### 笔记
 
-标过的句子进「学习」页。每一条都能写批注、删除。页顶的「复制笔记」把当前这份列表复制成 Markdown。
+标过的句子，以及提问和追问，都进「学习」页。每一条都能改摘录、问题和批注，也能删除。摘录会记下原文里的加粗、斜体和代码。卡片上方按页面里的样子显示，下面一格是 Markdown，改完会保存。复制选区和「复制笔记」带上的也是这份 Markdown。同一大段里如果拆成了好几张，改摘录就能收成你想留的那一张，多余的删掉。
+
+「笔记 · 数量」旁边可以按类别筛选，类别可以自己添加。每条笔记选一个类别，没选的是未分类。勾选之后可以全选当前筛出来的笔记，一起改类别或删除。复制笔记时带上类别，并且只复制当前筛出来的这些。
 
 笔记写在本机的 `~/.dsh/study-notes/`（Windows 上是 `%USERPROFILE%\.dsh\study-notes\`），按工作区分开，里面是 `index.json` 和对应的 Markdown。不写进你正在打开的项目仓库。
 
@@ -35,7 +37,7 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 选「提问」，写上例如「这段是什么」，也可以先选模型。
 
-这句话会被划线。句末出现一个小引用符号：
+这句话不会被划线。问题和摘录记在「学习」里。这句话还在对话里时，句末出现一个小引用符号：
 
 - 合上时，只有这个符号。
 - 点开后，是贴在这句话旁边的便利贴，里面是你的问题和这条进程最新的一条回复。
@@ -46,19 +48,19 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 ### 一条进程可以一直问下去
 
-一条划线对应一条进程。不同的句子是并排的几条，互不套娃。
+一条笔记对应一条进程。不同的句子是并排的几条，互不套娃。
 
 这条进程开在右侧栏，输入方式和主对话一样，新的一轮往下接在同一页。下面三种问法都进这一条，不会再套出「主进程 → 子进程 → 子进程」：
 
 - 在侧栏里直接打字。
 - 在主对话里对同一句再点「追问」。
-- 在已经打开的这条进程里再划线追问。
+- 在已经打开的这条进程里再选一段追问。
 
 它记得自己前面的回答。更早那种问完即止、不能接着写的进程，需要回到主对话重新提问。
 
 ### 模型
 
-三处可以选模型：划线后浮出的提问卡、「学习」页上的提问或追问、以及已经打开的子进程输入框上方。
+三处可以选模型：选中文字后浮出的提问卡、「学习」页上的提问或追问、以及已经打开的子进程输入框上方。
 
 - 「跟随当前对话」：新开的这条用你当前对话的模型。
 - 「沿用当前模型」：这次追问不换。
@@ -139,7 +141,9 @@ The reasoning trace does not open this card.
 
 ### Notes
 
-Marked sentences are listed on the 学习 page. Each row can take a comment, and each row can be deleted. 复制笔记 copies the current list as Markdown.
+Marked sentences, questions, and follow-ups are listed on the 学习 page. Each row can edit the excerpt, the question, and the comment, and each row can be deleted. The excerpt keeps bold, italics, and code from the original message. The card shows that formatting the way the conversation did, and the box under it is the Markdown you can change and save. Copying a selection, and 复制笔记, both carry that Markdown. If one passage was split into several notes, edit the excerpt so the one you want covers it, then delete the extras.
+
+Beside the note count, the list can be filtered by category, and categories can be added freely. Each note can be given one; a note without one stays uncategorized. Checked notes can be selected together, then assigned a category or deleted. 复制笔记 includes the category and copies only the notes the filter is showing.
 
 Notes are stored on this machine under `~/.dsh/study-notes/` (`%USERPROFILE%\.dsh\study-notes\` on Windows), grouped by workspace, as `index.json` plus a Markdown file. They are not written into the project you have open.
 
@@ -149,7 +153,7 @@ Select the same span again and the button becomes 取消标记 or 取消划线. 
 
 Choose 提问 and type something like “这段是什么”. You can pick a model first.
 
-The sentence is underlined, and a small citation mark sits at the end:
+The sentence is not underlined. The question and the excerpt are saved on the 学习 page. While that sentence is still in the conversation, a small citation mark sits at the end:
 
 - Collapsed, only that mark is visible.
 - Expanded, a sticky note beside the sentence shows your question and the latest reply.
@@ -160,7 +164,7 @@ The question does not replace the main conversation. The reply is written in the
 
 ### One child keeps going
 
-One underline is one side conversation. Different sentences are parallel conversations. They do not nest inside each other.
+One note is one side conversation. Different sentences are parallel conversations. They do not nest inside each other.
 
 The child opens in the right column. You type there the same way as in the main conversation, and the next turn extends downward on that page. These three actions all continue that same child:
 
