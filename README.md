@@ -1,8 +1,8 @@
 # dsh-marginalia
 
-在 DeepSeek Harness 的对话里，把助手回复中值得留下的句子标出来，收成笔记，并就其中一句接着问。问句开在旁边的侧栏里，主对话留在原来的页面。
+在 DeepSeek Harness 的对话里，把值得留下的句子标出来，收成笔记，并就其中一句接着问。助手的回复和自己发出的内容都可以。问句开在旁边的侧栏里，主对话留在原来的页面。
 
-Mark a sentence in an assistant reply inside DeepSeek Harness, keep it as a note, and ask about that sentence alone. The question opens in the side column. The main conversation stays where it is.
+Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask about that sentence alone. This works on assistant replies and on messages you sent. The question opens in the side column. The main conversation stays where it is.
 
 [中文说明](#中文) · [English](#english)
 
@@ -12,7 +12,7 @@ Mark a sentence in an assistant reply inside DeepSeek Harness, keep it as a note
 
 这是 DeepSeek Harness 桌面版的一个插件。对话页上，「学习」和「对话」并列。空白的新对话不显示这排标签。
 
-你留在对话里，选中助手写给你的一段话。光标右上方会出现一张白卡片，右键打开的是同一张。卡片上有四件事：
+你留在对话里，选中助手写给你的一段话，或自己发出的一段话。光标右上方会出现一张白卡片，右键打开的是同一张。卡片上有四件事：
 
 | 按钮 | 做什么 |
 |---|---|
@@ -21,7 +21,7 @@ Mark a sentence in an assistant reply inside DeepSeek Harness, keep it as a note
 | 划线 / 取消划线 | 给这段加下划线，或把下划线去掉。 |
 | 提问 / 追问 | 就这段发问。已经问过的，接着问同一条。 |
 
-自己发出的消息，以及思考过程，不会出现这张卡片。
+思考过程不会出现这张卡片。
 
 ### 笔记
 
@@ -97,7 +97,7 @@ node --test lib/model.test.js lib/quote.test.js
 
 dsh-marginalia is a desktop plugin for DeepSeek Harness. On the conversation page, a tab named 学习 sits beside 对话. A blank new chat hides that tab row.
 
-Stay in the conversation and select part of the assistant's reply. A white card appears at the upper right of the caret. A right-click opens the same card.
+Stay in the conversation and select part of an assistant reply, or part of a message you sent. A white card appears at the upper right of the caret. A right-click opens the same card.
 
 | Button | What it does |
 |---|---|
@@ -106,7 +106,7 @@ Stay in the conversation and select part of the assistant's reply. A white card 
 | 划线 / 取消划线 | Underline the span, or clear the underline. |
 | 提问 / 追问 | Ask about this span. If you already asked, continue that same side conversation. |
 
-Your own messages and the reasoning trace do not open this card.
+The reasoning trace does not open this card.
 
 ### Notes
 
