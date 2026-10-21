@@ -12,26 +12,27 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 
 这是 DeepSeek Harness 桌面版的一个插件。对话页上，「学习」和「对话」并列。空白的新对话不显示这排标签。
 
-你留在对话里，选中助手写给你的一段话，或自己发出的一段话。光标右上方会出现一张白卡片，右键打开的是同一张。卡片上有四件事：
+你留在对话里，选中助手写给你的一段话，或自己发出的一段话。光标右上方会出现一张白卡片，右键打开的是同一张。卡片上有五件事：
 
 | 按钮 | 做什么 |
 |---|---|
 | 复制 | 把选中的这段放进剪贴板。 |
-| 标记 / 取消标记 | 给这段加上或去掉颜色。点标记后，上方浮出红、蓝、黄；加号打开调色板。自己选的颜色会留下，一共最多 5 种。 |
-| 划线 / 取消划线 | 给这段加下划线，或把下划线去掉。 |
+| 标记 / 取消标记 | 给这段加上或去掉颜色。点标记后，上方浮出红、蓝、黄；加号打开调色板。自己选的颜色会留下，一共最多 5 种。颜色只留在原文上，不会自动进笔记。 |
+| 划线 / 取消划线 | 给这段加金色下划线，或把下划线去掉。下划线只留在原文上，不会自动进笔记。 |
+| 加入笔记 / 移出笔记 | 把选中的整段收进「学习」。原文出现浅灰色虚线下划线。再选中同一段，可以移出。 |
 | 提问 / 追问 | 就这段发问。已经问过的，接着问同一条。 |
 
 思考过程不会出现这张卡片。
 
 ### 笔记
 
-标过的句子，以及提问和追问，都进「学习」页。每一条都能改摘录、问题和批注，也能删除。摘录会记下原文里的加粗、斜体和代码。卡片上方按页面里的样子显示，下面一格是 Markdown，改完会保存。复制选区和「复制笔记」带上的也是这份 Markdown。同一大段里如果拆成了好几张，改摘录就能收成你想留的那一张，多余的删掉。
+「加入笔记」收进的整段，以及提问和追问，都进「学习」页。标记和划线不会自动出现在这里。每一条都能改摘录、问题和批注，也能删除。摘录会记下原文里的加粗、斜体和代码。上面是预览，落在这段里的标记颜色和金色划线也会画在预览上，下面一格是 Markdown，改完会保存。复制选区和「复制笔记」带上的也是这份 Markdown。同一大段里如果拆成了好几张，改摘录就能收成你想留的那一张，多余的删掉。
 
 「笔记 · 数量」旁边可以按类别筛选，类别可以自己添加。每条笔记选一个类别，没选的是未分类。勾选之后可以全选当前筛出来的笔记，一起改类别或删除。复制笔记时带上类别，并且只复制当前筛出来的这些。
 
 笔记写在本机的 `~/.dsh/study-notes/`（Windows 上是 `%USERPROFILE%\.dsh\study-notes\`），按工作区分开，里面是 `index.json` 和对应的 Markdown。不写进你正在打开的项目仓库。
 
-同一段再选一次，按钮变成「取消标记」或「取消划线」，整条标注会从对话和笔记里拿掉。选区跟已有标注重叠，或去掉空白后是同一句，也算这一条。别处还有一句完全相同的文字时，会一起取消。
+再选中同一段，按钮变成「取消标记」「取消划线」或「移出笔记」。取消标记和取消划线只去掉原文上的颜色或金色下划线。移出笔记会从「学习」里拿走整段，并去掉虚线下划线。选区跟已有标注重叠，或去掉空白后是同一句，也算这一条。别处还有一句完全相同的文字时，会一起取消。
 
 ### 就一句话提问
 
@@ -76,7 +77,7 @@ Mark a sentence in a DeepSeek Harness conversation, keep it as a note, and ask a
 dsh plugin --profile desktop add dsh-marginalia
 ```
 
-要固定版本，把包名写成 `dsh-marginalia@0.1.2`。装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
+要固定版本，把包名写成 `dsh-marginalia@0.1.3`。装好或更新后，把 DeepSeek Harness 完全退出，包括托盘图标，再打开。只关窗口不够。
 
 也可以从本机目录安装。把路径换成这套插件所在的目录：
 
@@ -92,7 +93,7 @@ npm view dsh-marginalia version
 
 包页面是 https://www.npmjs.com/package/dsh-marginalia 。
 
-要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.2 是按桌面版 `0.2.1-rc.2` 写的。
+要求 Node.js 20 或更高，DeepSeek Harness `>=0.2.1-rc.2 <0.3`。这份 0.1.3 是按桌面版 `0.2.1-rc.2` 写的。
 
 不要把本插件再写进 profile 自己的 `cordis.patch.yml`。命令行看到 `package.json` 里的 `dsh.bundle.patch` 后，会自己把 `cordis.patch.yml` 接上。写两遍会挂两次。
 
@@ -133,21 +134,22 @@ Stay in the conversation and select part of an assistant reply, or part of a mes
 | Button | What it does |
 |---|---|
 | 复制 | Copy the selection. |
-| 标记 / 取消标记 | Color the span, or clear that mark. After 标记, a row floats above with red, blue, and yellow. + opens a palette. Chosen colors are kept, and there can be at most five. |
-| 划线 / 取消划线 | Underline the span, or clear the underline. |
+| 标记 / 取消标记 | Color the span, or clear that mark. After 标记, a row floats above with red, blue, and yellow. + opens a palette. Chosen colors are kept, and there can be at most five. The color stays on the message and does not become a note by itself. |
+| 划线 / 取消划线 | Underline the span in gold, or clear that underline. The underline stays on the message and does not become a note by itself. |
+| 加入笔记 / 移出笔记 | Add the whole selection to 学习. The message gets a light gray dashed underline. Select that same passage again to remove the note. |
 | 提问 / 追问 | Ask about this span. If you already asked, continue that same side conversation. |
 
 The reasoning trace does not open this card.
 
 ### Notes
 
-Marked sentences, questions, and follow-ups are listed on the 学习 page. Each row can edit the excerpt, the question, and the comment, and each row can be deleted. The excerpt keeps bold, italics, and code from the original message. The card shows that formatting the way the conversation did, and the box under it is the Markdown you can change and save. Copying a selection, and 复制笔记, both carry that Markdown. If one passage was split into several notes, edit the excerpt so the one you want covers it, then delete the extras.
+Passages added with 加入笔记, plus questions and follow-ups, are listed on the 学习 page. A color mark or a gold underline does not appear there on its own. Each row can edit the excerpt, the question, and the comment, and each row can be deleted. The excerpt keeps bold, italics, and code from the original message. The card shows a preview, including mark colors and gold underlines that fall inside that passage, and the box under it is the Markdown you can change and save. Copying a selection, and 复制笔记, both carry that Markdown. If one passage was split into several notes, edit the excerpt so the one you want covers it, then delete the extras.
 
 Beside the note count, the list can be filtered by category, and categories can be added freely. Each note can be given one; a note without one stays uncategorized. Checked notes can be selected together, then assigned a category or deleted. 复制笔记 includes the category and copies only the notes the filter is showing.
 
 Notes are stored on this machine under `~/.dsh/study-notes/` (`%USERPROFILE%\.dsh\study-notes\` on Windows), grouped by workspace, as `index.json` plus a Markdown file. They are not written into the project you have open.
 
-Select the same span again and the button becomes 取消标记 or 取消划线. That removes the whole mark from the conversation and from the notes. An overlapping selection, or the same words with different line breaks, counts as that mark. The same quote elsewhere is removed with it.
+Select the same span again and the button becomes 取消标记, 取消划线, or 移出笔记. Clearing a color or a gold underline leaves the notes list unchanged. 移出笔记 removes that passage from 学习 and clears the dashed underline. An overlapping selection, or the same words with different line breaks, counts as that mark. The same quote elsewhere is removed with it.
 
 ### Ask about one sentence
 
@@ -192,7 +194,7 @@ Install the current release from npm. The profile name is usually `desktop`.
 dsh plugin --profile desktop add dsh-marginalia
 ```
 
-Pin a version with `dsh-marginalia@0.1.2`. After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
+Pin a version with `dsh-marginalia@0.1.3`. After installing or updating, quit DeepSeek Harness completely, including the tray icon, then open it again. Closing the window is not enough.
 
 A local directory works too. Replace the path with the directory that contains this plugin:
 
@@ -208,7 +210,7 @@ npm view dsh-marginalia version
 
 The package page is https://www.npmjs.com/package/dsh-marginalia .
 
-Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.2 was written against desktop `0.2.1-rc.2`.
+Requires Node.js 20 or newer, and DeepSeek Harness `>=0.2.1-rc.2 <0.3`. Version 0.1.3 was written against desktop `0.2.1-rc.2`.
 
 Do not also insert this plugin into the profile's own `cordis.patch.yml`. The CLI reads `dsh.bundle.patch` in `package.json` and appends `cordis.patch.yml` itself. Adding it twice mounts the plugin twice.
 
